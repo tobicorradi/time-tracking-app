@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import './App.css';
 import TaskCreator from './components/TaskCreator';
 import TaskList from './components/TaskList'
@@ -12,10 +12,11 @@ function App() {
     text: 'Estudio de react',
     time: '03:09'
   }])
+  const countRef = useRef(null)
   return (
     <Container>
       <Row>
-        <TaskCreator timer={timer}/>
+        <TaskCreator timer={timer} setTimer={setTimer}/>
         <TaskList list={list}/>
       </Row>
     </Container>
