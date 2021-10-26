@@ -11,7 +11,7 @@ function App() {
   const [list, setList] = useState([{
     id: 1,
     text: 'Estudio de react',
-    time: '03:09'
+    time: 128
   }])
   const countRef = useRef(null)
   return (
