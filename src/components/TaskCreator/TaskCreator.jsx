@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 
 const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timerActive, setTimerActive}) => {
     const countRef = useRef(null)
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const createTask = () => {
         setList([
             {
                 id: Math.random() * 1000,
@@ -14,6 +13,14 @@ const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timer
             ...list
         ])
         setNewTask('')
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        if(timer == 0){
+            handleStart()
+        } else {
+            handleStop()
+        }
     }
     const handleStart = () => {
         setTimerActive(true)
@@ -26,6 +33,7 @@ const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timer
             clearInterval(countRef.current)
             setTimer(0)
             setTimerActive(false)
+            createTask()
         }
     }
     const formatTime = () => {
