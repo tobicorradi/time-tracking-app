@@ -36,6 +36,7 @@ const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timer
             setTimer(0)
             setTimerActive(false)
             createTask()
+            setShowError(false)
         } else {
             setShowError(true)
         }
