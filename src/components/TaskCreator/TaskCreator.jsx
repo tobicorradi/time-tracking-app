@@ -1,8 +1,10 @@
-import React, {useRef} from 'react'
+import React, {useState, useRef} from 'react'
 import Button from 'react-bootstrap/Button';
+import Alert from 'react-bootstrap/Alert';
 import { formatTime } from '../../Utils';
 const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timerActive, setTimerActive}) => {
     const countRef = useRef(null)
+    const [showError, setShowError] = useState(false)
     const createTask = () => {
         setList([
             {
@@ -34,6 +36,8 @@ const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timer
             setTimer(0)
             setTimerActive(false)
             createTask()
+        } else {
+            setShowError(true)
         }
     }
    
@@ -41,12 +45,15 @@ const TaskCreator = ({timer, setTimer, newTask, setNewTask, setList, list, timer
         <>
             <h2>TimeTracker App</h2>
             <form onSubmit={handleSubmit} className="w-100 d-flex align-items-center">
-                <input value={newTask} onChange={(e) => setNewTask(e.target.value)} style={{flex: 1}} className="me-2" type="text"/>
+                <input required value={newTask} onChange={(e) => setNewTask(e.target.value)} style={{flex: 1}} className="me-2" type="text"/>
                 <span className="me-2">{formatTime(timer)}</span>
                 {timerActive
                 ? <Button onClick={handleStop}>Stop</Button> 
                 : <Button onClick={handleStart} variant="primary" className="me-2">Start</Button>}
             </form>
+            {showError ?
+                <Alert className="text-danger mt-3" variant="danger" onClose={() => setShowError(false)} dismissible>¡Debe ingresar un nombre!</Alert> 
+            : null}
         </>
     )
 }
