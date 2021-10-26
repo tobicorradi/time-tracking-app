@@ -15,7 +15,7 @@ function App() {
   }])
   const countRef = useRef(null)
   return (
-    <Container>
+    <Container className="mt-4">
       <Row>
         <TaskCreator timer={timer} setTimer={setTimer} newTask={newTask} setNewTask={setNewTask} list={list} setList={setList}/>
         <TaskList list={list}/>
