@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 function App() {
   const [timer, setTimer] = useState(0)
+  const [newTask, setNewTask] = useState('')
   const [list, setList] = useState([{
     id: 1,
     text: 'Estudio de react',
@@ -16,7 +17,7 @@ function App() {
   return (
     <Container>
       <Row>
-        <TaskCreator timer={timer} setTimer={setTimer}/>
+        <TaskCreator timer={timer} setTimer={setTimer} newTask={newTask} setNewTask={setNewTask} list={list} setList={setList}/>
         <TaskList list={list}/>
       </Row>
     </Container>
