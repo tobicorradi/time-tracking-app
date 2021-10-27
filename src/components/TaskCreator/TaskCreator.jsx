@@ -54,16 +54,8 @@ const TaskCreator = ({
 
   return (
     <>
-      <h2>TimeTracker App</h2>
+      <h2 class="mb-3">TimeTracker App</h2>
       <form onSubmit={handleSubmit} className="w-100 d-flex align-items-center">
-        {/* <input
-          required
-          value={newTask}
-          onChange={(e) => setNewTask(e.target.value)}
-          style={{ flex: 1 }}
-          className="me-2"
-          type="text"
-        /> */}
         <Form.Control
           required
           value={newTask}

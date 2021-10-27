@@ -29,7 +29,7 @@ function App() {
           timerActive={timerActive}
           setTimerActive={setTimerActive}
         />
-        <TaskList list={list} />
+        <TaskList list={list} setList={setList}/>
       </Row>
     </Container>
   );
