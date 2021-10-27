@@ -17,7 +17,7 @@ const TaskList = ({list, setList}) => {
             {list.map(el => (
                 <div key={el.id} className="task d-flex justify-content-between p-4 shadow-sm mb-3">
                     <div className="d-flex justify-content-between w-100 me-5">
-                        <span>{el.text}</span>
+                        <span><small className="me-2">{el.id}</small>{el.text}</span>
                         <strong>{formatTime(el.time)}</strong>
                     </div>
                     <CloseButton onClick={() => deleteTask(el.id)}/>

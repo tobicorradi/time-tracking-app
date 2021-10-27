@@ -18,7 +18,7 @@ const TaskCreator = ({
   const createTask = () => {
     setList([
       {
-        id: Math.random() * 1000,
+        id: list.length + 1,
         text: newTask,
         time: timer,
       },
