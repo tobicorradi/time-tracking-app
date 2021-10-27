@@ -54,7 +54,7 @@ const TaskCreator = ({
 
   return (
     <>
-      <h2 class="mb-3">TimeTracker App</h2>
+      <h2 className="mb-3">TimeTracker App</h2>
       <form onSubmit={handleSubmit} className="w-100 d-flex align-items-center">
         <Form.Control
           required
