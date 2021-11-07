@@ -1,6 +1,7 @@
 import React from 'react'
 import { formatTime } from '../../Utils'
 import { CloseButton } from "react-bootstrap";
+import {useSelector, useDispatch} from 'react-redux'
 
 const TaskList = ({list, setList}) => {
     const deleteTask = (id) => [
