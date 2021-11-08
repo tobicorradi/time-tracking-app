@@ -3,27 +3,29 @@ import Button from "react-bootstrap/Button";
 import Alert from "react-bootstrap/Alert";
 import Form from "react-bootstrap/Form";
 import { formatTime } from "../../Utils";
+import {useSelector, useDispatch} from 'react-redux'
+import { createTask } from '../../actions';
+
 const TaskCreator = ({
   timer,
   setTimer,
   newTask,
   setNewTask,
-  setList,
-  list,
   timerActive,
   setTimerActive,
 }) => {
   const countRef = useRef(null);
   const [showError, setShowError] = useState(false);
-  const createTask = () => {
-    setList([
-      {
-        id: list.length + 1,
-        text: newTask,
-        time: timer,
-      },
-      ...list,
-    ]);
+  const state = useSelector((state) => (state.list))
+  const dispatch = useDispatch()
+
+  const handleCreateTask = () => {
+    const newObj  = {
+      id: state.list.length + 1,
+      text: newTask,
+      time: timer,
+    }
+    dispatch(createTask(newObj))
     setNewTask("");
   };
   const handleSubmit = (e) => {
@@ -45,7 +47,7 @@ const TaskCreator = ({
       clearInterval(countRef.current);
       setTimer(0);
       setTimerActive(false);
-      createTask();
+      handleCreateTask();
       setShowError(false);
     } else {
       setShowError(true);

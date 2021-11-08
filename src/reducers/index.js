@@ -1,10 +1,9 @@
-const reducer = (state, action) => {
-    switch(action.type){
-        case 'DELETE_TASK':
-            // return{
-            //     list: list.filter(el => el.id !== action.payload)
-            // }
-    }
-}
+import { combineReducers } from "redux";
+import timerReducer from './timerReducer'
+import tasksReducer from './tasksReducer'
+const reducers = combineReducers({
+    timer: timerReducer,
+    list: tasksReducer,
+})
 
-export default reducer
+export default reducers
