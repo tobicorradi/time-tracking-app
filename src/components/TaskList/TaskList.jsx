@@ -9,7 +9,7 @@ const TaskList = ({setList}) => {
 
     const handleDelete = (id) => {
         dispatch(deleteTask(id))
-    }
+    }asdasdas
     const getAllTime = () => {
         return state.list.reduce((acc, el) => { return acc + el.time},0)
     }
